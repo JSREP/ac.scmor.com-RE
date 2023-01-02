@@ -78,11 +78,25 @@ function base64decode(str) {
 }
 ```
 
+注意这个函数还依赖了两个变量`Gword`和`hn`，这两个变量都是全局变量，我们借助这个插件来定位这两个变量赋值的地方：
+
+```
+https://github.com/JSREI/js-window-monitor-debugger-hook
+```
+
+`hn`初始化的地方：
+
+![image-20230102174443161](README.assets/image-20230102174443161.png)
+
+`Gword`赋值的地方，隐藏在了百度统计的一个`script`中：
+
+![image-20230102174519935](README.assets/image-20230102174519935.png)
+
+至此分析完毕，抠出来的代码详见[link-decode.js](./link-decode.js)，运行：
+
+![image-20230102174713946](README.assets/image-20230102174713946.png)
+
 完毕。
-
-
-
-
 
 
 
